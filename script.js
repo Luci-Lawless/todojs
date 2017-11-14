@@ -79,3 +79,15 @@ function nextTodoId() {
 }
 // reset the value of the inputField to make it empty and
 // ready to create new todos
+
+function cleanUpDoneTodos() {
+  var list = document.getElementById("todolist");
+  var doneItems = document.getElementsByClassName("completed");
+
+  // Reverse loop through the done todo items so we can remove them without changing the index of the remaining items when we remove them
+  for (var i = doneItems.length; i > 0; i--) {
+    list.removeChild(doneItems[i-1]);
+  }
+
+  updateCounters();
+}
